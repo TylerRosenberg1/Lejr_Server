@@ -22,7 +22,7 @@ module.exports = {
       if (err) {
         res.send({error: err})
       } else {
-        res.json({user: {username: user.username, _id: user._id}, bets: user.bets});        
+        res.json({user: {username: user.username, _id: user._id}, bets: user.bets});
       }
     })
   }

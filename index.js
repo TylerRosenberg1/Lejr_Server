@@ -4,6 +4,10 @@ const app = express();
 const port = process.env.PORT || 7000;
 app.listen(port);
 
+// CORS SETTINGS
+const cors = require("cors");
+app.use(cors());
+
 // MONGOOSE CONNECTION SETTINGS
 const mongoose = require("mongoose");
 mongoose.connect('mongodb://localhost/lejr');
@@ -20,7 +24,12 @@ const secret = require("./config/config");
 
 // CONTROLLER IMPORTS
 const UserController = require("./controllers/user.controller");
+const BetController = require("./controllers/bet.controller");
 
 // ROUTE IMPORTS
 app.post("/user/signup", UserController.create);
 app.get("/api/user/:id", UserController.show);
+
+app.post("/api/user/:id/bet/create", BetController.create);
+app.put("/api/user/:id/bet/:betId/update/:outcome", BetController.update);
+app.delete("/api/user/:id/bet/:betId/destroy", BetController.destroy);

@@ -19,7 +19,7 @@ const BetSchema = new Schema({
   },
   status: {
     type: String,
-    default: null
+    default: "active"
   },
   outcome: {
     type: String,
