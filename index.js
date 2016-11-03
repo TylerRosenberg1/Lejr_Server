@@ -10,7 +10,8 @@ app.use(cors());
 
 // MONGOOSE CONNECTION SETTINGS
 const mongoose = require("mongoose");
-mongoose.connect(MONGODB_URI);
+var mongoUri = process.env.MONGOLAB_URI || 'mongodb://localhost/lejr';
+mongoose.connect(mongoUri);
 
 // BODY PARSER SETTINGS
 const bodyParser = require("body-parser");
