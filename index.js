@@ -28,6 +28,7 @@ const BetController = require("./controllers/bet.controller");
 
 // ROUTE IMPORTS
 app.post("/user/signup", UserController.create);
+app.post("/user/signin", UserController.signin);
 app.get("/api/user/:id", UserController.show);
 
 app.post("/api/user/:id/bet/create", BetController.create);
