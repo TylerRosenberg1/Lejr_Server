@@ -42,10 +42,14 @@ module.exports = {
     })
     .populate("bets")
     .exec(function(err, user) {
-      if (err) {
-        res.send({error: err})
+      if (!user) {
+        res.send({error: "No such user"})
       } else {
-        res.json({user: {username: user.username, _id: user._id}, bets: user.bets});
+        if (err) {
+          res.send({error: err})
+        } else {
+          res.json({user: {username: user.username, _id: user._id}, bets: user.bets});
+        }        
       }
     })
   }
