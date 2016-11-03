@@ -19,9 +19,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
 
 // JWT-EXPRESS SETTINGS
-const expressJwt = require("express-jwt");
 const secret = require("./config/config");
-app.use('/api', expressJwt({secret: secret}));
 
 // CONTROLLER IMPORTS
 const UserController = require("./controllers/user.controller");
